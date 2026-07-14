@@ -10,7 +10,7 @@
 
 ---
 
-# Thành viên thực hiện
+# Người thực hiện
 
 - Họ và tên: Nguyễn Quốc Kiệt
 - MSSV:231A010689
