@@ -1,4 +1,4 @@
-
+# Hệ thống phát hiện xâm nhập cho mạng IoT
 
 ## Giới thiệu
 
@@ -6,121 +6,154 @@
 
 **Hệ thống phát hiện xâm nhập cho mạng IoT**
 
-Đề tài tập trung nghiên cứu các nguy cơ an toàn thông tin trong môi trường Internet of Things (IoT), đồng thời xây dựng mô hình phát hiện xâm nhập nhằm giám sát và phát hiện các hành vi bất thường trong hệ thống mạng IoT.
+Đề tài tập trung nghiên cứu việc thiết kế mô hình hệ thống phát hiện xâm nhập (Intrusion Detection System - IDS) cho môi trường Internet of Things (IoT). Hệ thống có nhiệm vụ giám sát lưu lượng mạng, phát hiện các hành vi bất thường và hỗ trợ cảnh báo sớm nhằm nâng cao khả năng bảo vệ hệ thống trước các nguy cơ mất an toàn thông tin.
+
+Mô hình được triển khai trong môi trường mô phỏng sử dụng VMware và các công cụ mã nguồn mở phục vụ mục đích học tập, nghiên cứu và thực hành an toàn thông tin.
 
 ---
 
-# Người thực hiện
+# Người thực hiện
 
-- Họ và tên: Nguyễn Quốc Kiệt
-- MSSV:231A010689
-- Lớp:253INT441001
-- Giảng viên hướng dẫn: Hồ Nhựt Minh
+- **Họ và tên:** Nguyễn Quốc Kiệt
+- **MSSV:** 231A010689
+- **Lớp:** 253INT441001
+- **Giảng viên hướng dẫn:** Hồ Nhật Minh
 
 ---
 
 # Mục tiêu
 
-- Nghiên cứu các nguy cơ bảo mật trong IoT.
-- Tìm hiểu tiêu chuẩn bảo mật của OWASP dành cho IoT.
-- Nghiên cứu Node-RED trong hệ thống IoT.
-- Xây dựng mô hình mô phỏng hệ thống IDS.
-- Đánh giá khả năng phát hiện các cuộc tấn công.
+- Thiết kế mô hình IDS phù hợp với mạng IoT.
+- Nghiên cứu và so sánh IDS dựa trên chữ ký (Signature-based IDS) và IDS dựa trên hành vi (Anomaly-based IDS).
+- Xây dựng mô hình giám sát lưu lượng mạng IoT bằng Suricata IDS.
+- Mô phỏng lưu lượng IoT bằng Node-RED phục vụ kiểm thử hệ thống.
+- Đánh giá khả năng phát hiện thông qua log cảnh báo và kết quả thực nghiệm.
 
 ---
 
 # Tài liệu tham khảo chính
 
-1. OWASP IoT Security Testing Guide (ISTG)
+### 1. OWASP IoT Security Testing Guide (ISTG)
 
 https://github.com/OWASP/owasp-istg
 
-2. OWASP IoT Security Verification Standard (ISVS)
+### 2. OWASP IoT Security Verification Standard (ISVS)
 
 https://github.com/OWASP/IoT-Security-Verification-Standard-ISVS
 
-3. Node-RED
+### 3. Node-RED
 
 https://github.com/node-red/node-red
 
-4. Cisco Documentation
+### 4. Netgate pfSense Documentation
 
-5. VMware Documentation
+https://docs.netgate.com/pfsense/
 
-6. Netgate pfSense Documentation
+### 5. Suricata Documentation
+
+https://docs.suricata.io/
+
+### 6. VMware Documentation
+
+https://docs.vmware.com/
 
 ---
 
-# Cấu trúc repository
+# Cấu trúc Repository
 
-```
+```text
 configs/
 data/
+images/
 references/
 report/
 results/
-Slides/
+slides/
 src/
 README.md
 ```
 
-Trong đó:
+### Mô tả các thư mục
 
-- configs: lưu file cấu hình
-- data: lưu dữ liệu sử dụng
-- references: lưu tài liệu tham khảo
-- report: lưu báo cáo Word/PDF
-- results: lưu hình ảnh kết quả
-- Slides: lưu slide thuyết trình
-- src: lưu mã nguồn (nếu có)
+- **configs/**: Lưu các file cấu hình của pfSense, Suricata và các thành phần liên quan.
+- **data/**: Lưu dữ liệu hoặc lưu lượng mô phỏng phục vụ kiểm thử.
+- **images/**: Lưu sơ đồ kiến trúc, sơ đồ luồng dữ liệu và hình ảnh minh chứng.
+- **references/**: Lưu tài liệu tham khảo sử dụng trong đề tài.
+- **report/**: Lưu báo cáo Word hoặc PDF.
+- **results/**: Lưu log cảnh báo, kết quả kiểm thử và hình ảnh thực nghiệm.
+- **slides/**: Lưu slide thuyết trình.
+- **src/**: Lưu mã nguồn hoặc script hỗ trợ (nếu có).
 
 ---
 
 # Công nghệ sử dụng
 
 - VMware Workstation
-- pfSense
-- Ubuntu
-- Kali Linux
+- pfSense CE
+- Suricata IDS
 - Node-RED
+- Kali Linux
+- Windows Client
 - MQTT
 - GitHub
 
 ---
 
-# Cách chạy
+# Cách triển khai
 
-Hiện tại nhóm đang trong giai đoạn nghiên cứu và xây dựng mô hình.
+Quy trình thực hiện dự kiến:
 
-Quy trình dự kiến:
-
-1. Xây dựng môi trường mô phỏng.
-2. Cấu hình mạng IoT.
-3. Triển khai hệ thống IDS.
-4. Sinh lưu lượng mạng.
-5. Phân tích kết quả.
+1. Xây dựng môi trường mô phỏng trên VMware.
+2. Cấu hình mạng IoT và Gateway.
+3. Triển khai Suricata IDS trên pfSense.
+4. Mô phỏng lưu lượng IoT bằng Node-RED.
+5. Thực hiện các kịch bản kiểm thử.
+6. Thu thập log và đánh giá kết quả phát hiện.
 
 ---
 
-# Kết quả hiện tại
+# Tiến độ thực hiện
 
-Đã hoàn thành:
+## Đã hoàn thành
 
 - Tạo repository GitHub.
 - Xây dựng cấu trúc thư mục.
 - Thu thập tài liệu tham khảo.
-- Hoàn thành bản nháp Chương 2.
+- Hoàn thành Chương 1.
+- Hoàn thành bản nháp Chương 2 (đến mục 2.4).
+- Thiết kế sơ đồ kiến trúc hệ thống.
+- Thiết kế sơ đồ luồng dữ liệu.
 
-Đang thực hiện:
+## Đang thực hiện
 
-- Thiết kế mô hình hệ thống.
-- Triển khai thực nghiệm.
+- Hoàn thiện Chương 2.
+- Xây dựng mô hình thực nghiệm.
+- Triển khai và đánh giá hệ thống IDS.
+- Hoàn thiện báo cáo và slide thuyết trình.
 
 ---
 
 # Hình ảnh minh chứng
 
-(Hình ảnh sẽ được cập nhật sau khi hoàn thành mô hình thực nghiệm.)
+Thư mục **images/** sẽ được cập nhật trong quá trình thực hiện, bao gồm:
+
+- Sơ đồ kiến trúc hệ thống.
+- Sơ đồ luồng dữ liệu.
+- Ảnh cấu hình pfSense.
+- Ảnh cấu hình Suricata IDS.
+- Ảnh mô phỏng Node-RED.
+- Ảnh Alert Log và kết quả thực nghiệm.
+
+---
+
+# Kết quả dự kiến
+
+- Mô hình mạng IoT mô phỏng hoàn chỉnh.
+- Hệ thống IDS giám sát lưu lượng mạng.
+- Bộ luật (Rule) phát hiện các hành vi bất thường.
+- Alert Log và kết quả phát hiện.
+- Bảng đánh giá khả năng phát hiện của hệ thống.
+- Hướng dẫn triển khai và tái hiện mô hình.
 
 ---
 
@@ -128,6 +161,10 @@ Quy trình dự kiến:
 
 Repository chỉ phục vụ mục đích học tập và nghiên cứu.
 
-Các thí nghiệm được thực hiện trong môi trường mô phỏng VMware và không triển khai trên hệ thống thực tế.
+Toàn bộ mô hình được triển khai trong môi trường mô phỏng VMware với dữ liệu thử nghiệm. Không triển khai trên hệ thống thực tế và không sử dụng cho các hoạt động tấn công trái phép hoặc gây ảnh hưởng đến hệ thống của bên thứ ba.
 
-Không sử dụng cho các hoạt động tấn công trái phép hoặc gây ảnh hưởng đến hệ thống của bên thứ ba.
+---
+
+# Giấy phép
+
+Tài liệu trong repository được sử dụng cho mục đích học tập và nghiên cứu tại Trường Đại học Văn Hiến.
