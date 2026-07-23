@@ -1,0 +1,20 @@
+Suricata Enabled Rules
+======================
+
+Project:
+Hệ thống phát hiện xâm nhập cho mạng IoT
+
+Rule Source:
+ET Open
+
+Enabled Rules:
+- emerging-exploit.rules
+- emerging-icmp.rules
+- emerging-malware.rules
+- emerging-scan.rules
+- emerging-web_client.rules
+- emerging-web_server.rules
+
+Description:
+These rules are enabled in the Suricata IDS configuration to detect common attacks,
+network scanning activities, exploits, malware-related traffic, and suspicious web requests.

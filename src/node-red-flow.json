@@ -1,0 +1,59 @@
+[
+    {
+        "id": "3735b95476237bce",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ddfcd07b3c9bfc3c",
+        "type": "http in",
+        "z": "3735b95476237bce",
+        "name": "API cam bien",
+        "url": "/sensor",
+        "method": "get",
+        "upload": false,
+        "skipBodyParsing": false,
+        "swaggerDoc": "",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "655206b87966433c"
+            ]
+        ]
+    },
+    {
+        "id": "655206b87966433c",
+        "type": "function",
+        "z": "3735b95476237bce",
+        "name": "Tao du lieu cam bien",
+        "func": "const temperature = Math.floor(Math.random() * 11) + 25;\nconst humidity = Math.floor(Math.random() * 21) + 55;\n\nmsg.headers = {\n    \"Content-Type\": \"application/json\"\n};\n\nmsg.payload = {\n    device_id: \"sensor-01\",\n    temperature: temperature,\n    humidity: humidity,\n    status: \"active\",\n    timestamp: new Date().toISOString()\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "87e587d7b594d637"
+            ]
+        ]
+    },
+    {
+        "id": "87e587d7b594d637",
+        "type": "http response",
+        "z": "3735b95476237bce",
+        "name": "Tra du lieu JSON",
+        "statusCode": "",
+        "headers": {},
+        "x": 650,
+        "y": 180,
+        "wires": []
+    }
+]
