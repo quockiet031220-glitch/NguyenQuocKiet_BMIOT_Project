@@ -2,169 +2,127 @@
 
 ## Giới thiệu
 
-Đây là repository phục vụ cho đề tài tiểu luận:
+Đây là repository lưu trữ toàn bộ tài liệu, cấu hình và kết quả của đề tài cuối kỳ môn **Bảo mật trong IoT**.
 
-**Hệ thống phát hiện xâm nhập cho mạng IoT**
-
-Đề tài tập trung nghiên cứu việc thiết kế mô hình hệ thống phát hiện xâm nhập (Intrusion Detection System - IDS) cho môi trường Internet of Things (IoT). Hệ thống có nhiệm vụ giám sát lưu lượng mạng, phát hiện các hành vi bất thường và hỗ trợ cảnh báo sớm nhằm nâng cao khả năng bảo vệ hệ thống trước các nguy cơ mất an toàn thông tin.
-
-Mô hình được triển khai trong môi trường mô phỏng sử dụng VMware và các công cụ mã nguồn mở phục vụ mục đích học tập, nghiên cứu và thực hành an toàn thông tin.
+Đề tài tập trung xây dựng mô hình mạng IoT mô phỏng kết hợp với hệ thống phát hiện xâm nhập (Intrusion Detection System - IDS) nhằm giám sát lưu lượng mạng và phát hiện các hành vi bất thường trong môi trường thử nghiệm. Hệ thống được triển khai trên VMware Workstation với pfSense CE tích hợp Suricata IDS, Node-RED mô phỏng thiết bị IoT, Windows Client và Kali Linux phục vụ kiểm thử. :contentReference[oaicite:1]{index=1}
 
 ---
 
-# Người thực hiện
+## Mục tiêu
 
-- **Họ và tên:** Nguyễn Quốc Kiệt
-- **MSSV:** 231A010689
-- **Lớp:** 253INT441001
-- **Giảng viên hướng dẫn:** Hồ Nhật Minh
-
----
-
-# Mục tiêu
-
-- Thiết kế mô hình IDS phù hợp với mạng IoT.
-- Nghiên cứu và so sánh IDS dựa trên chữ ký (Signature-based IDS) và IDS dựa trên hành vi (Anomaly-based IDS).
-- Xây dựng mô hình giám sát lưu lượng mạng IoT bằng Suricata IDS.
-- Mô phỏng lưu lượng IoT bằng Node-RED phục vụ kiểm thử hệ thống.
-- Đánh giá khả năng phát hiện thông qua log cảnh báo và kết quả thực nghiệm.
+- Xây dựng mô hình IDS phù hợp với môi trường mạng IoT.
+- Triển khai pfSense CE kết hợp Suricata IDS để giám sát lưu lượng mạng.
+- Mô phỏng dịch vụ IoT bằng Node-RED.
+- Thực hiện các kịch bản kiểm thử và đánh giá khả năng phát hiện của hệ thống thông qua cảnh báo và nhật ký sự kiện. :contentReference[oaicite:2]{index=2}
 
 ---
 
-# Tài liệu tham khảo chính
-
-### 1. OWASP IoT Security Testing Guide (ISTG)
-
-https://github.com/OWASP/owasp-istg
-
-### 2. OWASP IoT Security Verification Standard (ISVS)
-
-https://github.com/OWASP/IoT-Security-Verification-Standard-ISVS
-
-### 3. Node-RED
-
-https://github.com/node-red/node-red
-
-### 4. Netgate pfSense Documentation
-
-https://docs.netgate.com/pfsense/
-
-### 5. Suricata Documentation
-
-https://docs.suricata.io/
-
-### 6. VMware Documentation
-
-https://docs.vmware.com/
-
----
-
-# Cấu trúc Repository
-
-```text
-configs/
-data/
-images/
-references/
-report/
-results/
-slides/
-src/
-README.md
-```
-
-### Mô tả các thư mục
-
-- **configs/**: Lưu các file cấu hình của pfSense, Suricata và các thành phần liên quan.
-- **data/**: Lưu dữ liệu hoặc lưu lượng mô phỏng phục vụ kiểm thử.
-- **images/**: Lưu sơ đồ kiến trúc, sơ đồ luồng dữ liệu và hình ảnh minh chứng.
-- **references/**: Lưu tài liệu tham khảo sử dụng trong đề tài.
-- **report/**: Lưu báo cáo Word hoặc PDF.
-- **results/**: Lưu log cảnh báo, kết quả kiểm thử và hình ảnh thực nghiệm.
-- **slides/**: Lưu slide thuyết trình.
-- **src/**: Lưu mã nguồn hoặc script hỗ trợ (nếu có).
-
----
-
-# Công nghệ sử dụng
+## Công nghệ sử dụng
 
 - VMware Workstation
 - pfSense CE
 - Suricata IDS
 - Node-RED
+- Windows 10
 - Kali Linux
+- Nmap
+- HTTP / JSON
+
+---
+
+## Cấu trúc repository
+
+```
+.
+├── report/          # Báo cáo đề tài
+├── slides/          # Slide thuyết trình
+├── src/             # Thông tin về mã nguồn (README)
+├── configs/         # File cấu hình hệ thống
+├── data/            # Dữ liệu mẫu
+├── results/         # Kết quả kiểm thử
+└── references/      # Tài liệu tham khảo
+```
+
+---
+
+## Mô hình triển khai
+
+Hệ thống được triển khai trong môi trường VMware Workstation gồm các thành phần:
+
+- pfSense CE (Firewall/Gateway)
+- Suricata IDS
 - Windows Client
-- MQTT
-- GitHub
+- Node-RED
+- Kali Linux
+
+Suricata được cấu hình giám sát lưu lượng mạng nội bộ (LAN) nhằm phát hiện các hoạt động bất thường và sinh cảnh báo theo tập luật đã cấu hình. :contentReference[oaicite:3]{index=3}
 
 ---
 
-# Cách triển khai
+## Nội dung repository
 
-Quy trình thực hiện dự kiến:
+### report/
 
-1. Xây dựng môi trường mô phỏng trên VMware.
-2. Cấu hình mạng IoT và Gateway.
-3. Triển khai Suricata IDS trên pfSense.
-4. Mô phỏng lưu lượng IoT bằng Node-RED.
-5. Thực hiện các kịch bản kiểm thử.
-6. Thu thập log và đánh giá kết quả phát hiện.
+Báo cáo cuối kỳ định dạng DOCX và PDF.
 
----
+### slides/
 
-# Tiến độ thực hiện
+Slide sử dụng để bảo vệ đề tài.
 
-## Đã hoàn thành
+### src/
 
-- Tạo repository GitHub.
-- Xây dựng cấu trúc thư mục.
-- Thu thập tài liệu tham khảo.
-- Hoàn thành Chương 1.
-- Hoàn thành bản nháp Chương 2 (đến mục 2.4).
-- Thiết kế sơ đồ kiến trúc hệ thống.
-- Thiết kế sơ đồ luồng dữ liệu.
+Giải thích về mã nguồn của dự án.
 
-## Đang thực hiện
+### configs/
 
-- Hoàn thiện Chương 2.
-- Xây dựng mô hình thực nghiệm.
-- Triển khai và đánh giá hệ thống IDS.
-- Hoàn thiện báo cáo và slide thuyết trình.
+Các tệp cấu hình sử dụng trong quá trình triển khai như:
 
----
+- flow.json
+- pfSense configuration
+- Suricata rules
 
-# Hình ảnh minh chứng
+### data/
 
-Thư mục **images/** sẽ được cập nhật trong quá trình thực hiện, bao gồm:
+Dữ liệu mẫu phục vụ mô phỏng và kiểm thử.
 
-- Sơ đồ kiến trúc hệ thống.
-- Sơ đồ luồng dữ liệu.
-- Ảnh cấu hình pfSense.
-- Ảnh cấu hình Suricata IDS.
-- Ảnh mô phỏng Node-RED.
-- Ảnh Alert Log và kết quả thực nghiệm.
+### results/
+
+Bao gồm:
+
+- Ảnh minh họa quá trình triển khai
+- Nhật ký cảnh báo
+- Kết quả kiểm thử
+
+### references/
+
+Danh sách tài liệu, tiêu chuẩn và nguồn GitHub được tham khảo trong đề tài.
 
 ---
 
-# Kết quả dự kiến
+## Kết quả đạt được
 
-- Mô hình mạng IoT mô phỏng hoàn chỉnh.
-- Hệ thống IDS giám sát lưu lượng mạng.
-- Bộ luật (Rule) phát hiện các hành vi bất thường.
-- Alert Log và kết quả phát hiện.
-- Bảng đánh giá khả năng phát hiện của hệ thống.
-- Hướng dẫn triển khai và tái hiện mô hình.
-
----
-
-# Giới hạn an toàn
-
-Repository chỉ phục vụ mục đích học tập và nghiên cứu.
-
-Toàn bộ mô hình được triển khai trong môi trường mô phỏng VMware với dữ liệu thử nghiệm. Không triển khai trên hệ thống thực tế và không sử dụng cho các hoạt động tấn công trái phép hoặc gây ảnh hưởng đến hệ thống của bên thứ ba.
+- Xây dựng thành công mô hình IDS cho mạng IoT.
+- Triển khai Suricata trên pfSense.
+- Mô phỏng thiết bị IoT bằng Node-RED.
+- Tạo lưu lượng kiểm thử từ Kali Linux.
+- Phát hiện thành công hoạt động quét cổng và sinh cảnh báo trên Suricata IDS. :contentReference[oaicite:4]{index=4}
 
 ---
 
-# Giấy phép
+## Tác giả
 
-Tài liệu trong repository được sử dụng cho mục đích học tập và nghiên cứu tại Trường Đại học Văn Hiến.
+**Nguyễn Quốc Kiệt**
+
+Trường Đại học Văn Hiến
+
+Khoa Công nghệ Thông tin
+
+Môn học: Bảo mật trong IoT
+
+Giảng viên hướng dẫn: Hồ Nhựt Minh. :contentReference[oaicite:5]{index=5}
+
+---
+
+## Giấy phép
+
+Repository được xây dựng phục vụ mục đích học tập, nghiên cứu và báo cáo học phần.
