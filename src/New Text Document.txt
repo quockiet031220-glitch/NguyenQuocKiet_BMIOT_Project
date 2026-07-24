@@ -1,0 +1,17 @@
+# Source Code
+
+Dự án này không có mã nguồn được phát triển bằng các ngôn ngữ lập trình truyền thống (như Python, Java hoặc C#).
+
+Hệ thống được xây dựng dựa trên các nền tảng và công cụ cấu hình gồm:
+
+- Node-RED
+- pfSense CE
+- Suricata IDS
+
+Logic xử lý của hệ thống được lưu trong:
+
+`configs/flow.json`
+
+Các tệp cấu hình khác được lưu trong thư mục `configs/`.
+
+Thư mục `src/` được giữ lại để tuân theo cấu trúc repository theo yêu cầu của giảng viên.
