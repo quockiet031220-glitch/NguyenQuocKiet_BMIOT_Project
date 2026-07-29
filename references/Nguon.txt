@@ -1,3 +1,6 @@
-OWASP ISTG https://github.com/OWASP/owasp-istg
-OWASP ISVS https://github.com/OWASP/IoT-Security-Verification-Standard-ISVS
-Node-RED https://github.com/node-red/node-red
+[1] Open Information Security Foundation (OISF). Suricata GitHub Repository. https://github.com/OISF/suricata. Branch: main. Truy cập ngày 19/07/2026. Phần sử dụng: Tham khảo mã nguồn, cấu trúc hệ thống IDS và bộ luật phát hiện xâm nhập Suricata.
+[2] Node-RED Project. Node-RED GitHub Repository. https://github.com/node-red/node-red. Branch: main. Truy cập ngày 20/07/2026. Phần sử dụng: Tham khảo mã nguồn và triển khai luồng xử lý dữ liệu IoT bằng Node-RED.
+[3] OWASP Foundation. OWASP IoT Security Testing Guide (ISTG). https://github.com/OWASP/owasp-istg. Branch: main. Truy cập ngày 10/07/2026. Phần sử dụng: Tham khảo phương pháp kiểm thử bảo mật cho hệ thống IoT.
+[4] OWASP Foundation. IoT Security Verification Standard (ISVS). https://github.com/OWASP/IoT-Security-Verification-Standard-ISVS. Branch: master. Truy cập ngày 10/07/2026. Phần sử dụng: Tham khảo các yêu cầu và tiêu chuẩn bảo mật đối với hệ thống IoT.
+[5] Insecure.Org. Nmap GitHub Repository. https://github.com/nmap/nmap. Branch: master. Truy cập ngày 20/07/2026. Phần sử dụng: Tham khảo công cụ quét mạng và xây dựng kịch bản kiểm thử phát hiện xâm nhập.
+[6] Netgate. pfSense Documentation. https://docs.netgate.com/pfsense/en/latest/. Phiên bản: CE 2.7.x. Truy cập ngày 17/07/2026. Phần sử dụng: Tham khảo cấu hình tường lửa, giao diện mạng và định tuyến trên pfSense.
